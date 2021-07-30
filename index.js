@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const exphbs = require('express-handlebars');
+var moment = require('moment');
 
 const SettingsBill = require('./setting-bill')
 
@@ -60,7 +61,7 @@ app.get('/actions', function(req, res){
 
 app.get('/actions/:actionType', (req, res) => {
   const actionType = req.params.actionType
-  res.render('actions', { actions: settingBill.actionsFor(actionType) })
+  res.render('actions', { actions: settingBill.actionsFor(actionType)})
 })
 
 

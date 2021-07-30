@@ -4,10 +4,12 @@ module.exports = function SettingsBill() {
     let callCost;
     let warningLevel;
     let criticalLevel; 
+    const moment = require('moment');
 
     let actionList = [];
 
     function setSettings (settings) {
+        
         smsCost = Number(settings.smsCost);
         callCost = Number(settings.callCost);
         warningLevel = settings.warningLevel;
@@ -16,6 +18,8 @@ module.exports = function SettingsBill() {
 
     function getSettings
     () {
+        
+        
         return {
             smsCost,
             callCost,
@@ -37,9 +41,11 @@ module.exports = function SettingsBill() {
                 actionList.push({
                     type: action,
                     cost,
-                    timestamp: new Date()
+                    timestamp: moment(new Date()).fromNow()
                 });
             }
+
+           
         }
     }
     function actions(){
@@ -90,12 +96,12 @@ module.exports = function SettingsBill() {
     }
 
     function totals() {
-        let smsTotal = getTotal('sms')
-        let callTotal = getTotal('call')
+        let smsTotal = getTotal('sms').toFixed(2)
+        let callTotal = getTotal('call').toFixed(2)
         return {
             smsTotal,
             callTotal,
-            grandTotal : grandTotal()
+            grandTotal : grandTotal().toFixed(2)
         }
     }
 
