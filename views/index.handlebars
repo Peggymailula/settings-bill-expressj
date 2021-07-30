@@ -30,27 +30,26 @@
             </form>
 
               <h5>Totals</h5>
-                  <table>
-                    <tr>
-                      <td>
-                        <a href="/actions/calls">Call total</a>
-                      </td>
-                      <td>R<span class="callTotalSettings">{{totals.callTotal}}</span> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a href="/actions/sms">SMS total</a>
-                      </td>
-                      <td>R<span class="smsTotalSettings">{{totals.smsTotal}}</span> </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a href="/actions">Total</a>
-                    </td> 
-                    {{!-- name="actionType"  --}}
-                      <td> R<span class="totalSettings">{{totals.grandTotal}}</span> </td>
-                    </tr>
-                  </table>
+                 <table>
+          <tr>
+            <td>
+              <a href="/actions/call">Call total</a>
+            </td>
+            <td>R<span class="callTotalSettings">{{totals.callTotal}}</span> </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/actions/sms">SMS total</a>
+            </td>
+            <td>R<span class="smsTotalSettings">{{totals.smsTotal}}</span> </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/actions">Total</a>
+            </td>
+            <td> R<span class="{{color}}">{{totals.grandTotal}}</span> </td>
+          </tr>
+        </table>
 
             </div>
             <div class="six columns">

@@ -27,7 +27,8 @@ app.get('/', function(req, res){
     res.render('index', {
      settings: 
    settingBill.getSettings(),
-       totals: settingBill.totals()
+       totals: settingBill.totals(),
+       color: settingBill.totalClassName()
    }
    );
 });
@@ -53,13 +54,15 @@ app.post('/action', function(req, res){
 });
 
 app.get('/actions', function(req, res){
-  res.render('actions', {actions: settingBill.actions()});
+  res.render('actions', 
+{actions: settingBill.actions})
 });
 
-app.get('/actions/:type', function(req, res){
-const actionType = req.params.actionType;
-    res.render('actions', {actions: settingBill.actions(actionType)});
-});
+app.get('/actions/:actionType', (req, res) => {
+  const actionType = req.params.actionType
+  res.render('actions', { actions: settingBill.actionsFor(actionType) })
+})
+
 
 const PORT = process.env.PORT || 3011;
 
